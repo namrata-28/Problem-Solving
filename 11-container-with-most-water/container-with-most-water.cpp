@@ -9,7 +9,7 @@ public:
             if(currentWater>maxWater){
                 maxWater = currentWater;
             }
-            if(height[firstContainer]<height[lastContainer]){
+            if(height[firstContainer]<=height[lastContainer]){
                 firstContainer++;
             } else{
                 lastContainer--;
