@@ -4,15 +4,14 @@ public:
         int size1 = word1.size();
         int size2 = word2.size();
         string result = "";
-        int i = 0, j = 0;
 
-        while(i < size1 || j < size2){
+        for(int i = 0; i < max(size1, size2); i++){
             if(i < size1){
-                result.push_back(word1[i++]);
+                result.push_back(word1[i]);
             }
 
-            if(j < size2){
-                result.push_back(word2[j++]);
+            if(i < size2){
+                result.push_back(word2[i]);
             }
         }
         return result;
