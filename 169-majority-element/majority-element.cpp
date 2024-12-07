@@ -36,7 +36,7 @@ public:
         int count = 0;
         int candidate;
 
-        for (int& num : nums) {
+        for (int num : nums) {
             if (count == 0) {
                 candidate = num;
             }
