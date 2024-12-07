@@ -1,3 +1,29 @@
+// class Solution {
+// private:
+//     unordered_map<char, char> mappings;
+
+// public:
+//     Solution() {
+//         mappings[')'] = '(';
+//         mappings['}'] = '{';
+//         mappings[']'] = '[';
+//     }
+//     bool isValid(string s) {
+//         stack<char> stk;
+//         for (char c : s) {
+//             if (mappings.find(c) == mappings.end()) {  
+//                 stk.push(c);
+//             } else {
+//                 if (stk.empty() || mappings[c] != stk.top()) {
+//                     return false;
+//                 }
+//                 stk.pop();
+//             }
+//         }
+//         return stk.empty();
+//     }
+// };
+
 class Solution {
 private:
     unordered_map<char, char> mappings;
@@ -11,15 +37,18 @@ public:
     bool isValid(string s) {
         stack<char> stk;
         for (char c : s) {
-            if (mappings.find(c) == mappings.end()) {  
-                stk.push(c);
-            } else {
-                // Check if the stack is empty or the top of the stack does not match
-                if (stk.empty() || mappings[c] != stk.top()) {
+            if (mappings.find(c) != mappings.end()) {  // closing bracket
+                // get the top element of the stack, if stack is empty, set a
+                // dummy value '#'
+                char topElement = stk.empty() ? '#' : stk.top();
+                stk.pop();
+                // if the mapping for this bracket doesn't match the stack's top
+                // element, return false.
+                if (topElement != mappings[c]) {
                     return false;
                 }
-                // Pop the top of the stack as it's a valid match
-                stk.pop();
+            } else {  // opening bracket
+                stk.push(c);
             }
         }
         return stk.empty();
