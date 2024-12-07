@@ -28,6 +28,7 @@ class Solution {
     int increasing = 1;
     int prevIncreasing = 0;
 
+    if(k==1) return true;
     for (int i = 1; i < nums.size(); ++i) {
       if (nums[i] > nums[i - 1]) {
         ++increasing;
