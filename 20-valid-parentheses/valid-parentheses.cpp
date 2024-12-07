@@ -1,25 +1,27 @@
 class Solution {
-public:
-    bool isValid(string s) {
-        stack <int> st;
-        for(int i = 0; i < s.size(); i++){
-            if(s[i]=='(' || s[i]=='{' || s[i]=='['){
-                st.push(s[i]);
-            }
-            else{
-                if(st.empty()) return false;
-                char c = st.top();
-                st.pop();
+private:
+    unordered_map<char, char> mappings;
 
-                if((s[i]==')' && c=='(') ||
-                    (s[i]==']' && c=='[') ||
-                    (s[i]=='}' && c=='{')){
-                }
-                else{
+public:
+    Solution() {
+        mappings[')'] = '(';
+        mappings['}'] = '{';
+        mappings[']'] = '[';
+    }
+    bool isValid(string s) {
+        stack<char> stk;
+        for (char c : s) {
+            if (mappings.find(c) == mappings.end()) {  
+                stk.push(c);
+            } else {
+                // Check if the stack is empty or the top of the stack does not match
+                if (stk.empty() || mappings[c] != stk.top()) {
                     return false;
                 }
+                // Pop the top of the stack as it's a valid match
+                stk.pop();
             }
         }
-        return(st.empty());
+        return stk.empty();
     }
 };
