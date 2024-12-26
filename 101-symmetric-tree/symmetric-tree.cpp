@@ -12,7 +12,8 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        return isSymmetricHelper(root,root);
+        if(!root) return true;
+        return isSymmetricHelper(root->left,root->right);
     }
     bool isSymmetricHelper(TreeNode* t1, TreeNode* t2) {
         if(t1 == nullptr && t2 == nullptr) return true;
