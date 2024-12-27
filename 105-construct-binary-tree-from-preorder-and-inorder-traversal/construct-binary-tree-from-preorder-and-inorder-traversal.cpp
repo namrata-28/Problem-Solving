@@ -25,7 +25,6 @@ public:
         return root;
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        preorderIndex = 0;
         for(int i = 0; i < inorder.size(); i++) {
             inorderIndexMap[inorder[i]] = i;
         }
