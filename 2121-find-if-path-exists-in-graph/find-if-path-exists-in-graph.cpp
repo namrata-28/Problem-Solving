@@ -3,7 +3,7 @@ public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
         // Store all edges in 'graph'.
         unordered_map<int, vector<int>> graph;
-        for (auto edge : edges) {
+        for (auto& edge : edges) {
             int a = edge[0], b = edge[1];
             graph[a].push_back(b);
             graph[b].push_back(a);
@@ -26,7 +26,7 @@ public:
 
             // For all the neighbors of the current node, if we haven't visit it before,
             // add it to 'bfsQueue' and mark it as visited.
-            for (auto nextNode : graph[currNode]) {
+            for (auto& nextNode : graph[currNode]) {
                 if (!seen[nextNode]) {
                     seen[nextNode] = true;
                     bfsQueue.push(nextNode);
