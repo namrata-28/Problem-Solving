@@ -1,14 +1,16 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> hashTable;
-        for(int i=0;i<nums.size();i++){
+        unordered_map<int,int> numsHash;
+
+        for(int i = 0; i < nums.size(); i++) {
             int complement = target-nums[i];
-            if(hashTable.find(complement) != hashTable.end()) {
-                return {hashTable[complement],i};
+
+            if(numsHash.find(complement)!=numsHash.end()) {
+                return{numsHash[complement], i};
             }
-            hashTable[nums[i]] = i;
+            numsHash[nums[i]] = i;
         }
-        return {-1,-1};
+        return { };
     }
 };
