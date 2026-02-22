@@ -1,16 +1,30 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        // Initialize our variables using the first element.
-        int currentSubarray = nums[0];
-        int maxSubarray = nums[0];
-        // Start with the 2nd element since we already used the first one.
-        for (int i = 1; i < nums.size(); i++) {
-            // If current_subarray is negative, throw it away. Otherwise, keep
-            // adding to it.
-            currentSubarray = max(nums[i], currentSubarray + nums[i]);
-            maxSubarray = max(maxSubarray, currentSubarray);
-        }
-        return maxSubarray;
+    //         long long prefix = 0;
+    // long long minPrefix = 0;   // minimum prefix seen so far
+    // long long maxSum = LLONG_MIN;
+
+    // for (int num : nums) {
+    //     prefix += num;
+
+    //     // Maximum subarray ending here
+    //     maxSum = max(maxSum, prefix - minPrefix);
+
+    //     // Update minimum prefix
+    //     minPrefix = min(minPrefix, prefix);
+    // }
+
+    // return (int)maxSum;
+    // }
+    int currSum = nums[0];
+    int maxSum = nums[0];
+
+    for(int i = 1; i < nums.size(); i++){
+        currSum = max(nums[i], currSum + nums[i]);
+        maxSum = max(maxSum, currSum);
+    }
+    
+    return maxSum;
     }
 };
