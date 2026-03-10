@@ -3,15 +3,20 @@ private:
     vector<int> prefixSum;
 public:
     NumArray(vector<int>& nums) {
-        prefixSum. assign(nums.size()+1, 0);
+        prefixSum.resize(nums.size());
 
-        for(int i = 0; i < nums.size(); i++) {
-            prefixSum[i+1] = prefixSum[i] + nums[i];
+        prefixSum[0] = nums[0];
+        for(int i = 1; i < nums.size(); i++) {
+            prefixSum[i] = prefixSum[i-1] + nums[i];
         }
     }
     
     int sumRange(int left, int right) {
-        return prefixSum[right+1] - prefixSum[left];
+        if(left == 0) {
+            return prefixSum[right];
+        }
+
+        return prefixSum[right] - prefixSum[left-1];
     }
 };
 
