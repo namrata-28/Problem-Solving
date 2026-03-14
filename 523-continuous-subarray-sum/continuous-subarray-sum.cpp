@@ -11,11 +11,10 @@ public:
             int rem = sum % k;
             if(rem == 0 && i > 0) return true;
 
-            if(mp.count(rem) && i - mp[rem] >= 2 ) {
-                return true;
-            }
-            
-            if(!mp.count(rem)) {
+            if(mp.count(rem)) {
+                if (i - mp[rem] > 1 )
+                    return true;
+            } else {
                 mp[rem] = i;
             }
 
