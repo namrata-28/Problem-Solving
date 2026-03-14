@@ -5,7 +5,7 @@ public:
         int zeroCount = 0;
         int maxlen = 0;
 
-        for(int r = 0; r < nums.size(); r++) {
+        for(int r = 0; r < nums.size(); r++){
             if(nums[r] == 0) {
                 zeroCount++;
             }
