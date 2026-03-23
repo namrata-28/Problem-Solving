@@ -8,9 +8,9 @@ public:
 
         dp.assign(n+1, vector<int>(m+1, 0));
 
-        for(int r = 0; r < n; r++) {
-            for(int c = 0; c < m; c++) {
-                dp[r+1][c+1] = dp[r+1][c] + dp[r][c+1] - dp[r][c] + matrix [r][c];
+        for(int r = 1; r <= n; r++) {
+            for(int c = 1; c <= m; c++) {
+                dp[r][c] = dp[r-1][c] + dp[r][c-1] - dp[r-1][c-1] + matrix [r-1][c-1];
             }
         }
     }
