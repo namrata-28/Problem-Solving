@@ -6,7 +6,9 @@ public:
 
         while(l <= r) {
             int mid = (l+r) /2;
-            int val = matrix[mid/m][mid%m];
+            int row  = mid/m;
+            int col = mid%m;
+            int val = matrix[row][col];
 
             if(val == target) return true;
             else if(val < target) l = mid+1;
