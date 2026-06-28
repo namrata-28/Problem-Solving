@@ -11,14 +11,14 @@ public:
             // check if left part in sorted
             if(nums[low] <= nums[mid]) {
                 // check if present within the range
-                if(nums[low] <= target && target <= nums[mid])
+                if(nums[low] <= target && target < nums[mid])
                     high = mid - 1;
                 else
                     low = mid + 1;
             } // check in right part
             else {
                 // check if present within the range
-                if(nums[mid] <= target && target <= nums[high])
+                if(nums[mid] < target && target <= nums[high])
                     low = mid + 1;
                 else
                     high = mid - 1;
