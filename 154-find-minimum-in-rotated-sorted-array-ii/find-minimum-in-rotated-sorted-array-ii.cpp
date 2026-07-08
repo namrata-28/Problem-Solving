@@ -6,18 +6,13 @@ public:
 
         while(low <= high) {
             int mid = low + (high - low)/2;
+            
 
             if(nums[low]==nums[mid] && nums[mid]==nums[high]){
                 ans = min(ans, nums[low]);
                 low++;
                 high--;
                 continue;
-            }
-
-            // Already sorted
-            if (nums[low] < nums[high]) {
-                ans = min(ans, nums[low]);
-                break;
             }
 
             if(nums[low] <= nums[mid]){
