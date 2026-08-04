@@ -116,6 +116,6 @@ public:
             }
         }
 
-        return (double)high;
+        return high;
     }
 };
