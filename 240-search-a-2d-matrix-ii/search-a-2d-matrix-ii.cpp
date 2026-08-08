@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool binarySearh(vector<int> &arr, int target){
+    bool binarySearch(vector<int> &arr, int target){
         int low = 0, high = arr.size()-1;
         while(low<=high){
             int mid = low + (high-low)/2;
@@ -15,7 +15,7 @@ public:
         int n = matrix[0].size();
         for(int i = 0; i < m; i++){
             if(matrix[i][0]<=target && target <= matrix[i][n-1]){
-                if(binarySearh(matrix[i], target)) 
+                if(binarySearch(matrix[i], target)) 
                     return true;
             }
         }
